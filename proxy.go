@@ -33,9 +33,6 @@ type ProxyHttpServer struct {
 var hasPort = regexp.MustCompile(`:\d+$`)
 
 func copyHeaders(dst, src http.Header) {
-	for k := range dst {
-		dst.Del(k)
-	}
 	for k, vs := range src {
 		for _, v := range vs {
 			dst.Add(k, v)
